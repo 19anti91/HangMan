@@ -79,10 +79,14 @@ public class GameActivity extends AppCompatActivity
         if(!letterFound)
         {
             letterFailed();
+            showMissedLetters(letter);
         }
 
     }
 
+    /**
+     * Shows image if letter is not in the word
+     */
     public void letterFailed()
     {
         mFailCounter++;
@@ -112,6 +116,16 @@ public class GameActivity extends AppCompatActivity
 
     }
 
+    /**
+     * Shows missmatched letters
+     * @param letter
+     */
+    public void showMissedLetters(String letter)
+    {
+        TextView lettersMissed = (TextView) findViewById(R.id.missedLetters);
+
+        lettersMissed.append(letter);
+    }
 
     public void showLetterAtIndex(int position, char letterGuessed)
     {
